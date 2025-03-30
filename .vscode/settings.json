@@ -21,19 +21,6 @@
   "sqltools.useNodeRuntime": false,
   "sqltools.connections": [
     {
-      "driver": "MariaDB",
-      "name": "MariaDB Database",
-      "server": "127.0.0.1",
-      "port": 3306,
-      "database": "mariadb",
-      "username": "mariadb",
-      "password": "mariadb",
-      "mysqlOptions": {
-        "authProtocol": "default"
-      },
-      "previewLimit": 50
-    },
-    {
       "driver": "MSSQL",
       "name": "Local SQL Server",
       "server": "localhost",
