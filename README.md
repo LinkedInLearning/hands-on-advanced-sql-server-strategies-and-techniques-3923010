@@ -13,7 +13,7 @@ This GitHub Codespaces environment comes pre-configured with SQL Server 2022, so
 
 Walter Shields
 
-Instructor description
+Data educator, bestselling SQL author, and LinkedIn Learning instructor with over 15 years of real-world experience helping professionals master data skills that drive business impact.
 
 Check out my other courses on [LinkedIn Learning] https://www.linkedin.com/learning/search?keywords=walter%20shields
 
