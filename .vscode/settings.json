@@ -25,7 +25,7 @@
       "name": "Local SQL Server",
       "server": "localhost",
       "port": 1433,
-      "database": "master",
+      "database": "MoviesDB",
       "username": "sa",
       "password": "YourStrong!Passw0rd"
     }
