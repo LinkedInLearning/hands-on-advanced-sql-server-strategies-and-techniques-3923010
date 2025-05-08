@@ -7,14 +7,14 @@
     "ghcr.io/devcontainers/features/docker-in-docker:2": {}
   },
   "postCreateCommand": "docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=YourStrong!Passw0rd' -p 1433:1433 --name sqlserver -d mcr.microsoft.com/mssql/server:2022-latest || true && sleep 20 && docker cp scripts/moviesdb.sql sqlserver:/tmp/moviesdb.sql && docker exec sqlserver /opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P 'YourStrong!Passw0rd' -N -C -i /tmp/moviesdb.sql || true",
-  "postStartCommand": "docker start sqlserver || (docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=YourStrong!Passw0rd' -p 1433:1433 --name sqlserver -d mcr.microsoft.com/mssql/server:2022-latest && sleep 20 && docker cp scripts/moviesdb.sql sqlserver:/tmp/moviesdb.sql && docker exec sqlserver /opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P 'YourStrong!Passw0rd' -N -C -i /tmp/moviesdb.sql) || true",
+  "postStartCommand": "docker rm -f sqlserver || true && docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=YourStrong!Passw0rd' -p 1433:1433 --restart always --name sqlserver -d mcr.microsoft.com/mssql/server:2022-latest && sleep 20 && docker cp scripts/moviesdb.sql sqlserver:/tmp/moviesdb.sql && docker exec sqlserver /opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P 'YourStrong!Passw0rd' -N -C -i /tmp/moviesdb.sql || true",
   "customizations": {
     "vscode": {
       "settings": {
         "mssql.connections": [
           {
             "server": "localhost",
-            "database": "master",
+            "database": "MoviesDB",
             "user": "sa",
             "password": "YourStrong!Passw0rd",
             "authenticationType": "SqlLogin",
